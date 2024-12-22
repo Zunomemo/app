@@ -8,7 +8,7 @@ import vueRouter from "unplugin-vue-router/vite";
 export default defineConfig({
     plugins: [
         vueRouter({
-            extensions: [".page.vue", ".vue"],
+            extensions: [".page.vue"],
             importMode: "async",
             routesFolder: [
                 {
@@ -19,7 +19,7 @@ export default defineConfig({
                 "**/*.component.vue"
             ]
         }),
-        vue(),
+        vue()
         // process.env.NODE_ENV === "development" && vueDevTools(),
         // process.env.NODE_ENV === "development" && inspect()
     ]

@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { routes } from "vue-router/auto-routes";
-
-console.log(`There are ${routes.length} routes.`);
 </script>
 
 <template>
@@ -14,9 +12,10 @@ console.log(`There are ${routes.length} routes.`);
             <p>
                 <strong>Current route path:</strong> {{ $route.fullPath }}
             </p>
-            <nav>
-                <RouterLink to="/">Home</RouterLink>
-                <RouterLink to="/teapot">Teapot</RouterLink>
+            <nav class="flex flex-row gap-3">
+                <div v-for="route in routes" :key="route.path">
+                    <RouterLink :to="route.path">{{ route.path }}</RouterLink>
+                </div>
             </nav>
             <main>
                 <RouterView />

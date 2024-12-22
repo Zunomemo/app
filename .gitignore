@@ -104,3 +104,6 @@ typings/
 
 # Electron-Forge
 out/
+
+auto-imports.d.ts
+typed-router.d.ts

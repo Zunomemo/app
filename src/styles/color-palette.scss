@@ -5,7 +5,7 @@
     --base-accent: 100%;
 
     $base-colours: (
-        bg: (5%)
+        bg: (0%)
     );
 
     @each $name, $value in $base-colours {

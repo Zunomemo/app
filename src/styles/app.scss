@@ -1,14 +1,21 @@
 html,
 body {
-    background-color: var(--hsl-bg);
+    background-color: transparent;
     color: col(80%);
     min-height: 100vh;
 }
 
 .app {
+    background-color: var(--hsl-bg);
     min-height: 100vh;
     position: absolute;
     inset: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.titlebar {
+    app-region: drag;
 }
 
 *, *::before, *::after {

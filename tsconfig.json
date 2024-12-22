@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "ESNext",
-        "module": "commonjs",
+        "module": "Node16",
         "allowJs": true,
         "skipLibCheck": true,
         "esModuleInterop": true,
@@ -9,7 +9,24 @@
         "sourceMap": true,
         "baseUrl": ".",
         "outDir": "dist",
-        "moduleResolution": "node",
-        "resolveJsonModule": true
-    }
+        "moduleResolution": "node16",
+        "isolatedModules": true,
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleDetection": "force",
+        "strict": true,
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "types": [
+            "vite/client",
+            "unplugin-vue-router/client"
+        ]
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.vue",
+        "vite.*.ts",
+        "forge.*.ts",
+        "auto-imports.d.ts",
+        "vue-shim.d.ts"
+    ]
 }

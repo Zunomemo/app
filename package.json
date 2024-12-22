@@ -1,0 +1,47 @@
+{
+    "name": "@zunomemo/app",
+    "productName": "app",
+    "version": "2024.0.0",
+    "description": "A zettelkasten inspired note taking application built for efficiency.",
+    "main": ".vite/build/main.js",
+    "scripts": {
+        "start": "electron-forge start",
+        "package": "electron-forge package",
+        "make": "electron-forge make",
+        "publish": "electron-forge publish",
+        "lint": "eslint ."
+    },
+    "devDependencies": {
+        "@electron-forge/cli": "^7.6.0",
+        "@electron-forge/maker-deb": "^7.6.0",
+        "@electron-forge/maker-rpm": "^7.6.0",
+        "@electron-forge/maker-squirrel": "^7.6.0",
+        "@electron-forge/maker-zip": "^7.6.0",
+        "@electron-forge/plugin-auto-unpack-natives": "^7.6.0",
+        "@electron-forge/plugin-fuses": "^7.6.0",
+        "@electron-forge/plugin-vite": "^7.6.0",
+        "@electron/fuses": "^1.8.0",
+        "@eslint/compat": "^1.2.4",
+        "@stylistic/eslint-plugin": "^2.12.1",
+        "@types/electron-squirrel-startup": "^1.0.2",
+        "@typescript-eslint/eslint-plugin": "^5.0.0",
+        "@typescript-eslint/parser": "^5.0.0",
+        "@zunomemo/eslint-config": "https://github.com/Zunomemo/eslint-config",
+        "electron": "33.2.1",
+        "eslint": "^9.17.0",
+        "eslint-plugin-import": "^2.25.0",
+        "ts-node": "^10.0.0",
+        "typescript": "^5.7.2",
+        "typescript-eslint": "^8.18.1",
+        "vite": "^5.0.12"
+    },
+    "author": {
+        "name": "Saryu",
+        "email": "yuriko.onozuka@proton.me"
+    },
+    "license": "MIT",
+    "packageManager": "yarn@4.2.2",
+    "dependencies": {
+        "electron-squirrel-startup": "^1.0.1"
+    }
+}

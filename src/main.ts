@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from "electron";
+// import installExtension, { VUEJS_DEVTOOLS_BETA } from "electron-devtools-installer";
 import path from "path";
 import started from "electron-squirrel-startup";
 
@@ -44,7 +45,9 @@ app.on("window-all-closed", () => {
     }
 });
 
-app.on("activate", () => {
+app.on("activate", async () => {
+    // await installExtension(VUEJS_DEVTOOLS_BETA, { loadExtensionOptions: { allowFileAccess: true } });
+
     // On OS X it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) {

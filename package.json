@@ -30,6 +30,7 @@
         "@zunomemo/eslint-config": "https://github.com/Zunomemo/eslint-config",
         "autoprefixer": "^10.4.20",
         "electron": "33.2.1",
+        "electron-devtools-installer": "^4.0.0",
         "eslint": "^9.17.0",
         "eslint-plugin-import": "^2.25.0",
         "postcss": "^8.4.49",

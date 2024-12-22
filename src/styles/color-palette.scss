@@ -1,0 +1,22 @@
+@use "sass:list";
+
+:root {
+    --base-saturation: 8%;
+    --base-accent: 100%;
+
+    $base-colours: (
+        bg: (5%)
+    );
+
+    @each $name, $value in $base-colours {
+        --hsl-#{$name}: hsl(var(--base-hue), var(--base-saturation), #{list.nth($value, 1)});
+    }
+}
+
+@function col($l) {
+    @return hsl(var(--base-hue), var(--base-saturation), $l);
+}
+
+@function col-accent($l) {
+    @return hsl(var(--base-hue), var(--base-accent), $l);
+}

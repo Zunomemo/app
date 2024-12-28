@@ -4,4 +4,13 @@
 
 :root {
     --base-hue: 210;
+    --padding: 0.3125rem; // 5px
+}
+
+.p-var {
+    padding: var(--padding);
+}
+
+.rounded-var {
+    border-radius: var(--padding);
 }

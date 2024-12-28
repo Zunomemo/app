@@ -1,5 +1,5 @@
 import { fileURLToPath } from "url";
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
 // import installExtension, { VUEJS_DEVTOOLS_BETA } from "electron-devtools-installer";
 import path from "path";
 import started from "electron-squirrel-startup";
@@ -17,13 +17,21 @@ const createWindow = () => {
     const mainWindow = new BrowserWindow({
         width: 1280,
         height: 720,
-        center: true,
-        frame: false,
-        transparent: true,
+        titleBarStyle: "hidden",
+        // note : enabling this option will make it impossible for the user to resize the window on the corners or edge of the screen.
+        // transparent: true,
         webPreferences: {
-            preload: path.join(__dirname, "preload.js"),
+            preload: path.join(__dirname, "preload.cjs"),
             nodeIntegration: true
         }
+    });
+
+    mainWindow.on("unmaximize", () => {
+        mainWindow.webContents.send("window-state-update", { maximized: false });
+    });
+
+    mainWindow.on("maximize", () => {
+        mainWindow.webContents.send("window-state-update", { maximized: true });
     });
 
     // and load the index.html of the app.
@@ -33,6 +41,26 @@ const createWindow = () => {
     else {
         mainWindow.loadFile(path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`));
     }
+
+    mainWindow.webContents.send("window-state-update", { maximized: mainWindow.isMaximized() });
+    ipcMain.on("window-action-invoke", (e, arg) => {
+        if (arg.action === "maximize") {
+            if (mainWindow.isMaximized()) {
+                mainWindow.unmaximize();
+            }
+            else {
+                mainWindow.maximize();
+            }
+        }
+
+        if (arg.action === "minimize") {
+            mainWindow.minimize();
+        }
+
+        if (arg.action === "close") {
+            mainWindow.close();
+        }
+    });
 
     // Open the DevTools.
     // mainWindow.webContents.openDevTools();

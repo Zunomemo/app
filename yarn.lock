@@ -1321,6 +1321,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@kalimahapps/vue-icons@npm:^1.7.1":
+  version: 1.7.1
+  resolution: "@kalimahapps/vue-icons@npm:1.7.1"
+  dependencies:
+    svg-parser: "npm:^2.0.4"
+  peerDependencies:
+    vue: ^3.0.0
+  checksum: 10c0/65f557ee557f7be17bdd30930014a7d8c3beee4c74154b3b286e64e57acf79567120b494b6591bfb28a170622e9065a4fe4f1574bca1005dcfed4d7715192f30
+  languageName: node
+  linkType: hard
+
 "@lezer/common@npm:^1.0.0, @lezer/common@npm:^1.1.0":
   version: 1.2.3
   resolution: "@lezer/common@npm:1.2.3"
@@ -2384,6 +2395,7 @@ __metadata:
     "@electron-forge/plugin-vite": "npm:^7.6.0"
     "@electron/fuses": "npm:^1.8.0"
     "@eslint/compat": "npm:^1.2.4"
+    "@kalimahapps/vue-icons": "npm:^1.7.1"
     "@replit/codemirror-vim": "npm:^6.2.1"
     "@stylistic/eslint-plugin": "npm:^2.12.1"
     "@types/codemirror": "npm:^5.60.15"
@@ -8682,6 +8694,13 @@ __metadata:
   version: 1.0.0
   resolution: "supports-preserve-symlinks-flag@npm:1.0.0"
   checksum: 10c0/6c4032340701a9950865f7ae8ef38578d8d7053f5e10518076e6554a9381fa91bd9c6850193695c141f32b21f979c985db07265a758867bac95de05f7d8aeb39
+  languageName: node
+  linkType: hard
+
+"svg-parser@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "svg-parser@npm:2.0.4"
+  checksum: 10c0/02f6cb155dd7b63ebc2f44f36365bc294543bebb81b614b7628f1af3c54ab64f7e1cec20f06e252bf95bdde78441ae295a412c68ad1678f16a6907d924512b7a
   languageName: node
   linkType: hard
 

@@ -1,12 +1,11 @@
 <script setup lang="ts">
+import Titlebar from "./components/titlebar.vue";
 import { routes } from "vue-router/auto-routes";
 </script>
 
 <template>
     <div class="flex flex-col app">
-        <div class="w-full h-6 bg-soft-[0%] titlebar">
-
-        </div>
+        <Titlebar />
         <div class="font-sans">
             <h1>Hello, World!</h1>
             <p>

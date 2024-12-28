@@ -19,7 +19,10 @@
         "types": [
             "vite/client",
             "unplugin-vue-router/client"
-        ]
+        ],
+        "paths": {
+            "@/*": ["./src/*"]
+        }
     },
     "include": [
         "src/**/*.ts",

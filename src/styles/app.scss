@@ -10,8 +10,9 @@ body {
     min-height: 100vh;
     position: absolute;
     inset: 0;
-    border-radius: 10px;
-    overflow: hidden;
+    // note : see main.ts createWindow() for the reason this is commented out.
+    // border-radius: 10px;
+    // overflow: hidden;
 }
 
 .titlebar {

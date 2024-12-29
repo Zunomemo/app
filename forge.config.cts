@@ -18,13 +18,11 @@ const config: ForgeConfig = {
             build: [
                 {
                     entry: "src/main.ts",
-                    config: "vite.main.config.ts",
-                    target: "main"
+                    config: "vite.main.config.ts"
                 },
                 {
                     entry: "src/preload.ts",
-                    config: "vite.preload.config.ts",
-                    target: "preload"
+                    config: "vite.preload.config.ts"
                 }
             ],
             renderer: [

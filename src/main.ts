@@ -1,25 +1,25 @@
-import { fileURLToPath } from "url";
+import "reflect-metadata";
 import { app, BrowserWindow, ipcMain } from "electron";
 import path from "path";
 import started from "electron-squirrel-startup";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { startDatabase } from "./database";
 
 if (started) {
     app.quit();
 }
 
 const createWindow = () => {
+    startDatabase();
+
     const mainWindow = new BrowserWindow({
         width: 1280,
         height: 720,
         titleBarStyle: "hidden",
+        show: false,
         // note : enabling this option will make it impossible for the user to resize the window on the corners or edge of the screen.
         // transparent: true,
         webPreferences: {
-            preload: path.join(__dirname, "preload.cjs"),
-            nodeIntegration: true
+            preload: path.join(__dirname, "preload.js")
         }
     });
 
@@ -37,6 +37,10 @@ const createWindow = () => {
     else {
         mainWindow.loadFile(path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`));
     }
+
+    mainWindow.once("ready-to-show", () => {
+        mainWindow.show();
+    });
 
     mainWindow.webContents.send("window-state-update", { maximized: mainWindow.isMaximized() });
     ipcMain.on("window-action-invoke", (e, arg) => {
@@ -59,7 +63,9 @@ const createWindow = () => {
     });
 };
 
-app.on("ready", createWindow);
+app.on("ready", async () => {
+    createWindow();
+});
 
 app.on("window-all-closed", () => {
     if (process.platform !== "darwin") {

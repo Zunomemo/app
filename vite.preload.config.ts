@@ -1,26 +1,26 @@
-import { defineConfig } from "vite";
-import unfonts from "unplugin-fonts/vite";
+import { ConfigEnv, defineConfig, mergeConfig, UserConfig } from "vite";
+import { external, getBuildConfig, pluginHotRestart } from "./vite.base.config";
 
-export default defineConfig({
-    build: {
-        lib: {
-            entry: "src/preload.ts",
-            formats: ["cjs"],
-            fileName: "preload.cjs"
+export default defineConfig((env) => {
+    const forgeEnv = env as ConfigEnv<"build">;
+    const { forgeConfigSelf } = forgeEnv;
+
+    const config: UserConfig = {
+        build: {
+            rollupOptions: {
+                external,
+                input: forgeConfigSelf.entry!,
+                output: {
+                    format: "cjs",
+                    inlineDynamicImports: true,
+                    entryFileNames: "[name].js",
+                    chunkFileNames: "[name].js",
+                    assetFileNames: "[name].[ext]"
+                }
+            }
         },
-        rollupOptions: {
-            output: {
-                format: "cjs",
-                // note : stupid stupid stupid stupid
-                entryFileNames: "[name].cjs"
-            }
-        }
-    },
-    plugins: [
-        unfonts({
-            google: {
-                families: ["Montserrat", "Inter"]
-            }
-        })
-    ]
+        plugins: [pluginHotRestart("reload")]
+    };
+
+    return mergeConfig(getBuildConfig(forgeEnv), config);
 });

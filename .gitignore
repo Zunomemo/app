@@ -107,3 +107,6 @@ out/
 
 auto-imports.d.ts
 typed-router.d.ts
+components.d.ts
+
+db.sqlite

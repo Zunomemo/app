@@ -7,7 +7,6 @@ import { EditorState, Text } from '@codemirror/state';
 import { EditorView, keymap } from '@codemirror/view';
 import { defaultKeymap } from '@codemirror/commands';
 import { vim } from "@replit/codemirror-vim";
-import { ref, shallowRef, onMounted, onUnmounted } from 'vue';
 
 const editor = ref<HTMLElement | undefined>();
 const doc = ref<string | Text>('');

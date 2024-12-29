@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Titlebar from "./components/titlebar.vue";
 import { routes } from "vue-router/auto-routes";
 </script>
 
@@ -7,13 +6,9 @@ import { routes } from "vue-router/auto-routes";
     <div class="flex flex-col app">
         <Titlebar />
         <div class="font-sans">
-            <h1>Hello, World!</h1>
-            <p>
-                <strong>Current route path:</strong> {{ $route.fullPath }}
-            </p>
             <nav class="flex flex-row gap-3">
                 <div v-for="route in routes" :key="route.path">
-                    <RouterLink :to="route.path">{{ route.path }}</RouterLink>
+                    <RouterLink active-class="border-indigo-500" class="border" :to="route.path">{{ route.path }}</RouterLink>
                 </div>
             </nav>
             <main>

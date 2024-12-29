@@ -7,7 +7,6 @@ export const AppDataSource = new DataSource({
     database: "db.sqlite",
     synchronize: false,
     migrationsRun: true,
-    logging: true,
     entities: [Tag],
     migrations: [Tag1735508649585]
 });
